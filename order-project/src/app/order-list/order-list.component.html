@@ -1,0 +1,44 @@
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Order Name</th>
+            <th>Order Price</th>
+            <th>Order isAvailable</th>
+            <th>SameDay Delivery ? </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tempOrderList of orderList">
+            <td>{{ tempOrderList.orderId }}</td>
+            <td>{{ tempOrderList.orderName }}</td>
+            <td>{{ tempOrderList.orderPrice }}</td>
+            <td>{{tempOrderList.isAvailable}}</td>
+            <td>
+                <div *ngIf="tempOrderList.orderPrice >= 6000 ; else myElseBlock">Yes</div>
+                <ng-template #myElseBlock>No</ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <label>OrderId</label>
+        <input type="number" class="form-control" [(ngModel)]="OrderId">
+        <label>OrderName</label>
+        <input type="text" class="form-control" [(ngModel)]="OrderName">
+        <label>OrderPrice</label>
+        <input type="number" class="form-control" [(ngModel)]="OrderPrice">       
+        <!--<p>{{ OrderId }}</p>
+        <p>{{OrderName}}</p>
+        <p>{{ OrderPrice }}</p>-->
+        <br/>
+
+        <button class="btn btn-primary" [disabled]="OrderId === ''"  (click)="OrderId = ''" 
+        [disabled]="OrderName === ''"  (click)="OrderName = ''" [disabled]="OrderPrice === ''"  (click)="OrderPrice = ''">Clear Order</button><br/>
+
+    </div>
+    </div>
+  </div>

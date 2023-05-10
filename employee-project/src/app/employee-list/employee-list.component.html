@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Designation</th>
+            <th>Employee Salary</th>
+            <th>Employee Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempEmployeeList of employeeList">
+            <td>{{ tempEmployeeList.empId }}</td>
+            <td>{{ tempEmployeeList.empName }}</td>
+            <td>{{ tempEmployeeList.empDesignation }}</td>
+            <td>{{tempEmployeeList.empSalary}}</td>
+            <td>
+                <div *ngIf="tempEmployeeList.empSalary >= '3000' ; else myElseBlock">Permanent Staff</div>
+                <ng-template #myElseBlock>Temporary Staff</ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
