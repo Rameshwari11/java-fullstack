@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="location" class="com.cgi.Location">
+	<property name="locationId" value ="101" />
+		<property name="city" value="Vellore" />
+		<property name="country" value="India" />
+	</bean>
+	
+	<bean id="department" class="com.cgi.Department">
+		<property name="location" ref="location" />
+		<property name="departmentId" value="1001" />
+		<property name="departmentName" value="Electronics" />
+	</bean>
+	
+	<bean id="employee" class="com.cgi.Employee">
+		<property name="department" ref="department" />
+		<property name="empId" value="10001" />
+		<property name="firstName" value="Rameshwari" />
+		<property name="lastName" value="Rao" />
+		
+	</bean>
+</beans>
